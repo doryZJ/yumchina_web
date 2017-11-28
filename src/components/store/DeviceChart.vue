@@ -18,8 +18,8 @@
             {{item.value}}
             <font v-show="type === 1">件</font>
             <font v-show="type === 0">台</font>
+            <img src="../../assets/images/btn_arrow_right_24x24@3x.png" alt="">
           </span>
-          <img src="../assets/images/btn_arrow_right_24x24@3x.png" alt="">
         </li>
       </ul>
     </div>
@@ -67,10 +67,7 @@
     methods: {
       initEcharts () {
         const elCircle = this.$refs.circle
-        // let circleChart = []
         let circleChart = echarts.init(elCircle)
-        const color = this.circleColor
-        console.log(color)
         circleChart.setOption({
           series: [
             {

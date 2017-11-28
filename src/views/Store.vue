@@ -6,12 +6,16 @@
       <device-chart :type="deviceOfflineType" :list="deviceOfflineList" :title="deviceOfflineTitle"></device-chart>
       <area-info :infoType="infoType"></area-info>
     </div>
+    <energy-overview></energy-overview>
+    <maintenance-overview></maintenance-overview>
   </div>
 </template>
 <script>
   import Breadcrumb from '@/components/Breadcrumb'
-  import DeviceChart from '@/components/DeviceChart'
-  import AreaInfo from '@/components/AreaInfo'
+  import DeviceChart from '@/components/store/DeviceChart'
+  import AreaInfo from '@/components/store/AreaInfo'
+  import EnergyOverview from '@/components/store/EnergyOverview'
+  import MaintenanceOverview from '@/components/store/MaintenanceOverview'
   export default {
     data () {
       return {
@@ -61,7 +65,9 @@
     components: {
       Breadcrumb,
       DeviceChart,
-      AreaInfo
+      AreaInfo,
+      EnergyOverview,
+      MaintenanceOverview
     }
   }
 </script>
