@@ -1,18 +1,22 @@
 <template>
   <div class="breadcrumb">
-    <span class="title">当前位置: </span>
-    <span>
-      上海地区
+    <span class="title">当前位置：</span>
+    <span v-for="(item, index) in breadcrumbs" :key="index">
+      {{item.label}}
       <i>></i>
-    </span>
-    <span>
-       肯德基洛川店
-       <i>></i>
     </span>
   </div>
 </template>
 <script>
   export default {
+    props: {
+      breadcrumbs: {
+        type: Array,
+        default: () => {
+          return []
+        }
+      }
+    }
   }
 </script>
 <style lang="scss">
