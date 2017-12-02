@@ -6,6 +6,14 @@
 <script>
   import echarts from 'echarts'
   export default {
+    props: {
+      chartData: {
+        type: Object,
+        default: () => {
+          return {}
+        }
+      }
+    },
     mounted () {
       this.initChart()
     },
@@ -30,7 +38,7 @@
           xAxis: [
             {
               type: 'category',
-              data: ['07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00']
+              data: this.chartData.xAxis
             }
           ],
           yAxis: [
@@ -42,7 +50,7 @@
             {
               name: '运维申请',
               type: 'bar',
-              data: [220, 182, 191, 234, 290, 330, 310, 320, 220, 182, 191, 234, 290, 330, 310, 320],
+              data: this.chartData.seriesData,
               itemStyle: {
                 normal: {
                   opacity: '0.9',

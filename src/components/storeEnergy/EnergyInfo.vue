@@ -2,23 +2,24 @@
   <div class="energyInfo">
     <div class="energyInfo__head">
       <div class="energyInfo__head__left">
-        <img src="../../assets/images/icon_on_36x36.png" alt="">
+        <img src="../../assets/images/icon_on_36x36.png" v-show="info.type === 0" alt="">
+        <img src="../../assets/images/icon_standby_36x36.png" v-show="info.type === 1" alt="">
         <div class="energyInfo__head__left__title">
-          <p>制冰机</p>
-          <span>Manitowoc</span>
+          <p>{{info.name}}</p>
+          <span>{{info.model}}</span>
         </div>
       </div>
-      <div class="energyInfo__head__right">
-        冰块
+      <div class="energyInfo__head__right" v-show="info.description">
+        {{info.description}}
       </div>
     </div>
     <div class="energyInfo-power">
       <span class="label">今日耗电量：</span>
       <div class="quantity">
-        <p><span>12.1</span>
+        <p><span>{{info.power}}</span>
           度
         </p>
-        <p>预计 18.7 度</p>
+        <p>预计 {{info.expectedPower}} 度</p>
       </div>
     </div>
     <div class="energyInfo-btns">
@@ -33,7 +34,14 @@
       info: {
         type: Object,
         default: () => {
-          return {}
+          return {
+            type: 0, // 0: 运行，1: 待机
+            name: '制冰机',
+            model: 'Manitowoc',
+            description: '冰块',
+            power: 12.1,
+            expectedPower: 18.7
+          }
         }
       }
     }
@@ -132,6 +140,7 @@
         box-sizing: border-box;
         text-align: center;
         line-height: 27px;
+        cursor: pointer;
       }
 
       .btn-opera {

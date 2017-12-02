@@ -1,7 +1,7 @@
 <template>
   <div class="energyItem">
-    <energy-info></energy-info>
-    <energy-chart></energy-chart>
+    <energy-info :info="item.info" ></energy-info>
+    <energy-chart :chartData="item.chartData"></energy-chart>
   </div> 
 </template>
 <script>
@@ -11,6 +11,14 @@
     components: {
       EnergyInfo,
       EnergyChart
+    },
+    props: {
+      item: {
+        type: Object,
+        default: () => {
+          return {}
+        }
+      }
     }
   }
 </script>

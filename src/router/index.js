@@ -4,6 +4,8 @@ import Login from '@/views/Login'
 import Home from '@/views/Home'
 import Store from '@/views/Store'
 import StoreEnergyDetail from '@/views/StoreEnergyDetail'
+import StoreMaintenanceDetail from '@/views/StoreMaintenanceDetail'
+import StoreDeviceDetail from '@/views/StoreDeviceDetail'
 
 Vue.use(Router)
 
@@ -29,6 +31,16 @@ const router = new Router({
           path: '/StoreEnergyDetail',
           name: 'StoreEnergyDetail',
           component: StoreEnergyDetail
+        },
+        {
+          path: '/StoreMaintenanceDetail',
+          name: 'StoreMaintenanceDetail',
+          component: StoreMaintenanceDetail
+        },
+        {
+          path: '/StoreDeviceDetail',
+          name: 'StoreDeviceDetail',
+          component: StoreDeviceDetail
         }
       ]
     }
