@@ -5,12 +5,12 @@
         <span class="active">耗电量统计</span>
         <i>|</i>
         <span>耗水量统计</span>
-        <i>|</i>
-        <span>耗热水量统计</span>
-        <i>|</i>
-        <span>耗热水量统计</span>
-        <i>|</i>
-        <span>顾客洗手水量</span>
+        <i v-show="chartType === 0">|</i>
+        <span v-show="chartType === 0">耗热水量统计</span>
+        <i v-show="chartType === 0">|</i>
+        <span v-show="chartType === 0">耗热水量统计</span>
+        <i v-show="chartType === 0">|</i>
+        <span v-show="chartType === 0">顾客洗手水量</span>
       </div>
       <div class="period">
         <span class="active">日</span>
@@ -27,6 +27,12 @@
 <script>
   import echarts from 'echarts'
   export default {
+    props: {
+      chartType: {
+        type: Number, // 0: 门店能耗, 1: 区域能耗
+        defalut: 0
+      }
+    },
     mounted () {
       this.initChart()
     },

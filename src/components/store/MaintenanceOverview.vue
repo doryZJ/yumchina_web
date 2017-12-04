@@ -1,25 +1,35 @@
 <template>
   <div class="overview">
-    <overview-info :overviewType="storeEnergyType" :title="storeEnergyTitle" :overviewParams="storeEnergy"></overview-info>
-    <maintenance-chart></maintenance-chart>
+    <overview-info :overviewType="overviewType" :title="title" :overviewParams="overviewParams"></overview-info>
+    <maintenance-chart :chartType="chartType"></maintenance-chart>
   </div>
 </template>
 <script>
   import OverviewInfo from './OverviewInfo'
   import MaintenanceChart from './MaintenanceChart'
   export default {
+    props: {
+      overviewType: {
+        type: Number,
+        default: 0
+      },
+      title: {
+        type: String,
+        default: ''
+      },
+      overviewParams: {
+        type: Object,
+        default: () => {
+          return {}
+        }
+      },
+      chartType: {
+        type: Number,
+        default: 0
+      }
+    },
     data () {
       return {
-        storeEnergyType: 1,
-        storeEnergyTitle: '门店运维总览',
-        storeEnergy: {
-          item1Name: '今日待处理设备告警',
-          item1Num1: '4',
-          item2Name: '今日本店总维修费用',
-          item2Num1: '2000',
-          item3Name: '今日全区域优秀运维排名',
-          item3Num: '72'
-        }
       }
     },
     components: {

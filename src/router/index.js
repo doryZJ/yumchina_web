@@ -6,6 +6,8 @@ import Store from '@/views/Store'
 import StoreEnergyDetail from '@/views/StoreEnergyDetail'
 import StoreMaintenanceDetail from '@/views/StoreMaintenanceDetail'
 import StoreDeviceDetail from '@/views/StoreDeviceDetail'
+import Area from '@/views/Area'
+import AreaDeviceDetail from '@/views/AreaDeviceDetail'
 
 Vue.use(Router)
 
@@ -41,6 +43,16 @@ const router = new Router({
           path: '/StoreDeviceDetail',
           name: 'StoreDeviceDetail',
           component: StoreDeviceDetail
+        },
+        {
+          path: '/Area',
+          name: 'Area',
+          component: Area
+        },
+        {
+          path: '/AreaDeviceDetail',
+          name: 'AreaDeviceDetail',
+          component: AreaDeviceDetail
         }
       ]
     }

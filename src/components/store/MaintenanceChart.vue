@@ -2,7 +2,8 @@
   <div class="energy-chart">
     <div class="head">
       <div class="nav">
-        <span class="active">设备告警统计</span>
+        <span class="active" v-show="chartType === 0">设备告警统计</span>
+        <span class="active" v-show="chartType === 1">运维申请统计</span>
         <i>|</i>
         <span>运维费用统计</span>
       </div>
@@ -16,6 +17,12 @@
 <script>
   import echarts from 'echarts'
   export default {
+    props: {
+      chartType: {
+        type: Number,
+        default: 0 // 0: 门店运维， 1: 区域运维
+      }
+    },
     mounted () {
       this.initChart()
     },

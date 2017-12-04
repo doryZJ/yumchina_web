@@ -6,8 +6,8 @@
       <device-chart :type="deviceOfflineType" :list="deviceOfflineList" :title="deviceOfflineTitle"></device-chart>
       <area-info :infoType="infoType"></area-info>
     </div>
-    <energy-overview></energy-overview>
-    <maintenance-overview></maintenance-overview>
+    <energy-overview :overviewType="energyType" :title="energyTitle" :overviewParams="energy" :chartType="energyChartType"></energy-overview>
+    <maintenance-overview :overviewType="maintenanceType" :title="maintenanceTitle" :overviewParams="maintenance" :chartType="maintenanceChartType"></maintenance-overview>
     <div class="device-wrapper">
       <device-overview></device-overview>
       <div class="screenshot">
@@ -89,7 +89,31 @@
             label: 'cctv-03 厨房'
           }
         ],
-        value: ''
+        value: '',
+        energyType: 0,
+        energyTitle: '门店能耗总览',
+        energy: {
+          item1Name: '今日全店总耗电量',
+          item1Num1: '95',
+          item1Num2: '150',
+          item2Name: '今日全店总用水量',
+          item2Num1: '41',
+          item2Num2: '70',
+          item3Name: '今日全区域节能减排排名',
+          item3Num: '53'
+        },
+        energyChartType: 0,
+        maintenanceType: 1,
+        maintenanceTitle: '门店运维总览',
+        maintenance: {
+          item1Name: '今日待处理设备告警',
+          item1Num1: '4',
+          item2Name: '今日本店总维修费用',
+          item2Num1: '2000',
+          item3Name: '今日全区域优秀运维排名',
+          item3Num: '72'
+        },
+        maintenanceChartType: 0
       }
     },
     components: {
