@@ -2,8 +2,7 @@
   <div class="home">
     <div class="home-left">
       <div class="home-logo">
-        <img src="../assets/images/Bitmap.png" alt="">
-        <span>百胜中国</span>
+        <img src="../assets/images/logo_honeywell_115x34@2x.png" alt="">
       </div>
       <side-bar></side-bar>
     </div>
@@ -44,6 +43,9 @@
 
         img {
           margin-right: 15px;
+          width: 115px;
+          height: 34px;
+          display: inline-block;
         }
 
         span {

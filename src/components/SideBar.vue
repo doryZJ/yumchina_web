@@ -1,22 +1,27 @@
 <template>
   <div class="sideBar">
-    <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#35404D" text-color="#fff"  active-text-color="#fff">
-      <el-menu-item index="1">
+    <el-menu default-active="2" class="el-menu-vertical-demo" router @open="handleOpen" @close="handleClose" background-color="#35404D" text-color="#fff"  active-text-color="#fff">
+      <el-submenu index="Area">
         <template slot="title">
           <img src="../assets/images/icon_home_24x24.png" alt="">
           <span>区域首页</span>
         </template>
-      </el-menu-item>
-      <el-submenu index="2">
+        <el-menu-item index="AreaEnergyDetail"> - 区域能耗详情</el-menu-item>
+        <el-menu-item index="AreaMaintenanceDetail"> - 区域运维详情</el-menu-item>
+        <el-menu-item index="AreaDeviceDetail"> - 区域设备详情</el-menu-item>
+      </el-submenu>
+      <el-submenu index="StoreList">
         <template slot="title">
+          <!-- <router-link to="StoreList"> -->
           <img src="../assets/images/icon_store_list_24x24.png" alt="">
           <span>门店列表</span>
+          <!-- </router-link> -->
         </template>
         <el-menu-item-group>
           <template slot="title">肯德基洛川路店</template>
-          <el-menu-item index="2-1"> - 门店能耗详情</el-menu-item>
-          <el-menu-item index="2-2"> - 门店运维详情</el-menu-item>
-          <el-menu-item index="2-3"> - 门店设备详情</el-menu-item>
+          <el-menu-item index="StoreEnergyDetail"> - 门店能耗详情</el-menu-item>
+          <el-menu-item index="StoreMaintenanceDetail"> - 门店运维详情</el-menu-item>
+          <el-menu-item index="StoreDeviceDetail"> - 门店设备详情</el-menu-item>
         </el-menu-item-group>
         <el-menu-item-group title="肯德基桂林路店">
         </el-menu-item-group>
@@ -36,7 +41,7 @@
   export default {
     methods: {
       handleOpen (key, keyPath) {
-        console.log(key, keyPath)
+        this.$router.push({'name': key})
       },
       handleClose (key, keyPath) {
         console.log(key, keyPath)
@@ -63,6 +68,12 @@
         }
 
         .el-submenu__title {
+          a {
+            text-decoration: none;
+            color: #fff;
+            opacity: .5;
+          }
+
           img {
             margin-right: 6px;
           }

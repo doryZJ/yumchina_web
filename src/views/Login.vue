@@ -8,11 +8,11 @@
       <div class="login">
         <div class="info">
           <img src="../assets/images/icon_id_9x20.png" alt="">
-          <input type="text" placeholder="用户名">
+          <input type="text" @focus="focusUsername" @blur="blurUsername" v-model="username">
         </div>
         <div class="info info-password">
           <img src="../assets/images/icon_password_11x19.png" alt="">
-          <input type="password" placeholder="密码">
+          <input type="password" placeholder="密码" @focus="focusPassword" @blur="blurPassword" v-model="password">
         </div>
         <div class="operate">
           <div class="rememberMe" @click="handleRememberMe">
@@ -25,7 +25,7 @@
             忘记密码？
           </div>
         </div>
-        <div class="btn">
+        <div class="btn" @click="handleLogin">
           登录
         </div>
       </div>
@@ -36,12 +36,41 @@
   export default {
     data () {
       return {
-        rememberMeVisiable: false
+        rememberMeVisiable: false,
+        username: '用户名',
+        password: ''
       }
     },
     methods: {
       handleRememberMe () {
         this.rememberMeVisiable = !this.rememberMeVisiable
+      },
+      focusUsername () {
+        this.username = ''
+      },
+      blurUsername () {
+        if (!this.username) {
+          this.username = '用户名'
+        }
+      },
+      focusPassword () {
+        this.$refs.password.placeholder = ''
+      },
+      blurPassword () {
+        if (!this.password) {
+          this.$refs.password.placeholder = '密码'
+        }
+      },
+      handleLogin () {
+        if (!this.username) {
+          this.$message.warning('请输入用户名！')
+          return
+        }
+        if (!this.password) {
+          this.$message.warning('请输入密码！')
+          return
+        }
+        this.$router.push('/Store')
       }
     }
   }
@@ -106,7 +135,6 @@
           input {
             margin-left: 26px;
             width: 264px;
-            font-family: SourceHanSansCN-Light;
             font-size: 18px;
             letter-spacing: 3px;
             background-color: transparent !important;
@@ -145,7 +173,6 @@
             }
 
             .text {
-              font-family: SourceHanSansCN-Light;
               font-size: 12px;
               line-height: 14px;
               display: inline-block;
@@ -155,7 +182,6 @@
           }
 
           .forgetPwd {
-            font-family: SourceHanSansCN-Light;
             font-size: 12px;
             color: #35404D;
             letter-spacing: 0;
@@ -171,10 +197,10 @@
           margin-top: 20px;
           text-align: center;
           background: #D53A2A;
-          font-family: SourceHanSansCN-Light;
           font-size: 18px;
           color: #FFFFFF;
           letter-spacing: 3px;
+          cursor: pointer;
         }
       }
     }
