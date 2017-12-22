@@ -12,10 +12,8 @@
       </el-submenu>
       <el-submenu index="StoreList">
         <template slot="title">
-          <!-- <router-link to="StoreList"> -->
           <img src="../assets/images/icon_store_list_24x24.png" alt="">
           <span>门店列表</span>
-          <!-- </router-link> -->
         </template>
         <el-menu-item-group>
           <template slot="title">肯德基洛川路店</template>
@@ -26,10 +24,23 @@
         <el-menu-item-group title="肯德基桂林路店">
         </el-menu-item-group>
       </el-submenu>
-      <el-menu-item index="3">
-        <img src="../assets/images/icon_service_management_24x24.png" alt="">
-        <span slot="title">服务管理</span>
-      </el-menu-item>
+      <el-submenu index="UserManagement">
+        <template slot="title">
+          <img src="../assets/images/icon_service_management_24x24.png" alt="">
+          <span>服务管理</span>
+        </template>
+        <el-menu-item-group>
+          <template slot="title">基础管理</template>
+          <el-menu-item index="StoreEnergyDetail"> - 用户管理</el-menu-item>
+          <el-menu-item index="StoreMaintenanceDetail"> - 组织管理</el-menu-item>
+          <el-menu-item index="StoreDeviceDetail"> - 职务管理</el-menu-item>
+          <el-menu-item index="StoreDeviceDetail"> - 菜单管理</el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item index="StoreDeviceDetail"> 门店管理</el-menu-item>
+        <el-menu-item index="StoreDeviceDetail"> 维保商管理</el-menu-item>
+        <el-menu-item index="StoreDeviceDetail"> 维保工程师管理</el-menu-item>
+        <el-menu-item index="StoreDeviceDetail"> 员工管理</el-menu-item>
+      </el-submenu>
       <el-menu-item index="4">
         <img src="../assets/images/icon_system_management_24x24.png" alt="">
         <span slot="title">系统管理</span>

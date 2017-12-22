@@ -11,6 +11,7 @@ import Area from '@/views/Area'
 import AreaDeviceDetail from '@/views/AreaDeviceDetail'
 import AreaEnergyDetail from '@/views/AreaEnergyDetail'
 import AreaMaintenanceDetail from '@/views/AreaMaintenanceDetail'
+import UserManagement from '@/views/UserManagement'
 
 Vue.use(Router)
 
@@ -71,6 +72,11 @@ const router = new Router({
           path: '/areaDeviceDetail',
           name: 'AreaDeviceDetail',
           component: AreaDeviceDetail
+        },
+        {
+          path: '/userManagement',
+          name: 'UserManagement',
+          component: UserManagement
         }
       ]
     }
