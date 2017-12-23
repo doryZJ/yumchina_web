@@ -27,11 +27,13 @@
 <style lang="scss">
   .home {
     width: 100%;
+    min-height: 100%;
     display: flex;
 
     .home-left {
       width: 240px;
       min-height: 100%;
+      height: auto;
       background: #35404D;
 
       .home-logo {

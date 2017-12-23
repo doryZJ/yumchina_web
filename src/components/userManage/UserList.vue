@@ -38,31 +38,31 @@
     <el-table ref="multipleTable" :data="list" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55">
       </el-table-column>
-      <el-table-column prop="num" label="序号" width="50">
+      <el-table-column prop="num" label="序号" min-width="50">
       </el-table-column>
-      <el-table-column prop="loginName" label="登录名" width="60">
+      <el-table-column prop="loginName" label="登录名" min-width="60">
       </el-table-column>
-      <el-table-column prop="userName" label="用户名" width="60">
+      <el-table-column prop="userName" label="用户名" min-width="60">
       </el-table-column>
-      <el-table-column prop="role" label="用户角色" width="80">
+      <el-table-column prop="role" label="用户角色" min-width="80">
       </el-table-column>
-      <el-table-column prop="email" label="电子邮箱" width="120">
+      <el-table-column prop="email" label="电子邮箱" min-width="120">
       </el-table-column>
-      <el-table-column prop="state" label="状态"  width="60">
+      <el-table-column prop="state" label="状态"  min-width="60">
       </el-table-column>
-      <el-table-column prop="recentLogin" label="最近登录"  width="160">
+      <el-table-column prop="recentLogin" label="最近登录"  min-width="160">
       </el-table-column>
-      <el-table-column prop="ip" label="最近登录IP"  width="100">
+      <el-table-column prop="ip" label="最近登录IP"  min-width="100">
       </el-table-column>
-      <el-table-column label="操作" class="operate">
+      <el-table-column label="操作" class="operate" min-width="200">
         <template slot-scope="scope">
-          <span class="resetPassword">密码重置</span>
+          <span class="resetPassword" @click="resetPassword">密码重置</span>
           <i>|</i>
-          <span class="view">查看</span>
+          <span class="view" @click="handleView">查看</span>
           <i>|</i>
-          <span class="edit">修改</span>
+          <span class="edit" @click="handleEdit">修改</span>
           <i>|</i>
-          <span class="delete">删除</span>
+          <span class="delete" @click="handleDelete">删除</span>
         </template>
       </el-table-column>
     </el-table>
@@ -84,9 +84,17 @@
         </el-pagination>
       </div>
     </div>
+    <password-reset v-show="passwordResetVisiable" @close="closePasswordReset"></password-reset>
+    <user-view v-show="viewVisiable" @close="closeView"></user-view>
+    <user-edit v-show="editVisiable" @close="closeEdit"></user-edit>
+    <user-delete v-show="deleteVisiable" @close="closeDelete"></user-delete>
   </div>
 </template>
 <script>
+import PasswordReset from '@/components/userManage/PasswordReset'
+import UserView from '@/components/userManage/UserView'
+import UserEdit from '@/components/userManage/UserEdit'
+import UserDelete from '@/components/userManage/UserDelete'
 export default {
   data () {
     return {
@@ -131,12 +139,46 @@ export default {
         ip: '192.168.1.1'
       }
       ],
-      multipleSelection: []
+      multipleSelection: [],
+      passwordResetVisiable: false,
+      viewVisiable: false,
+      editVisiable: false,
+      deleteVisiable: false
     }
+  },
+  components: {
+    PasswordReset,
+    UserView,
+    UserEdit,
+    UserDelete
   },
   methods: {
     handleSelectionChange (val) {
       this.multipleSelection = val
+    },
+    resetPassword () {
+      this.passwordResetVisiable = true
+    },
+    closePasswordReset (val) {
+      this.passwordResetVisiable = val
+    },
+    handleView () {
+      this.viewVisiable = true
+    },
+    closeView (val) {
+      this.viewVisiable = val
+    },
+    handleEdit () {
+      this.editVisiable = true
+    },
+    closeEdit (val) {
+      this.editVisiable = val
+    },
+    handleDelete () {
+      this.deleteVisiable = true
+    },
+    closeDelete (val) {
+      this.deleteVisiable = val
     }
   }
 }
@@ -179,6 +221,7 @@ export default {
           .el-table_1_column_10  {
             span {
               color: #35404D;
+              cursor: pointer;
             }
 
             i {

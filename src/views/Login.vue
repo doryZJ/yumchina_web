@@ -2,8 +2,7 @@
   <div class="login-view">
     <div class="login-box">
       <div class="head">
-        <img src="../assets/images/Bitmap.png" alt="">
-        <span>百胜中国设备智能管理平台</span>
+        <span>设备智能管理平台</span>
       </div>
       <div class="login">
         <div class="info">
@@ -105,13 +104,8 @@
 
       .head {
         height: 47px;
-        display: flex;
-        align-items: center;
-
-        img {
-          display: inline-block;
-          margin-right: 10px;
-        }
+        line-height: 47px;
+        text-align: center;
 
         span {
           font-family: SourceHanSansCN-Light;

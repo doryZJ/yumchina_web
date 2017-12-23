@@ -11,9 +11,17 @@ export default {
 </script>
 
 <style>
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   margin: 0;
+  width: 100%;
+  height: 100%;
 }
+
 #app {
   font-family: 'Microsoft YaHei', 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
