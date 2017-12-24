@@ -31,12 +31,12 @@
         </template>
         <el-menu-item-group>
           <template slot="title">基础管理</template>
-          <el-menu-item index="StoreEnergyDetail"> - 用户管理</el-menu-item>
-          <el-menu-item index="StoreMaintenanceDetail"> - 组织管理</el-menu-item>
-          <el-menu-item index="StoreDeviceDetail"> - 职务管理</el-menu-item>
-          <el-menu-item index="StoreDeviceDetail"> - 菜单管理</el-menu-item>
+          <el-menu-item index="UserManagement"> - 用户管理</el-menu-item>
+          <el-menu-item index=""> - 组织管理</el-menu-item>
+          <el-menu-item index=""> - 职务管理</el-menu-item>
+          <el-menu-item index=""> - 菜单管理</el-menu-item>
         </el-menu-item-group>
-        <el-menu-item index="StoreDeviceDetail"> 门店管理</el-menu-item>
+        <el-menu-item index="StoreCreateStepOne"> 门店管理</el-menu-item>
         <el-menu-item index="StoreDeviceDetail"> 维保商管理</el-menu-item>
         <el-menu-item index="StoreDeviceDetail"> 维保工程师管理</el-menu-item>
         <el-menu-item index="StoreDeviceDetail"> 员工管理</el-menu-item>

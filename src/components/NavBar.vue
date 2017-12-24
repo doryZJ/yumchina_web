@@ -1,17 +1,35 @@
 <template>
   <div class="navBar">
     <p class="title">设备智能管理平台</p>
-    <div class="userInfo">
+    <div class="userInfo" @click="handleSetting">
       <span class="icon">
         <img src="../assets/images/icon_user_24x24.png" alt="">
         <i></i>
       </span>
       <span>admin</span>
     </div>
+    <user-setting v-show="settingvisiable" @close="closeSetting"></user-setting>
   </div>
 </template>
 <script>
+  import UserSetting from './userManage/UserSetting'
   export default {
+    data () {
+      return {
+        settingvisiable: false
+      }
+    },
+    components: {
+      UserSetting
+    },
+    methods: {
+      handleSetting () {
+        this.settingvisiable = true
+      },
+      closeSetting (val) {
+        this.settingvisiable = val
+      }
+    }
   }
 </script>
 <style lang="scss">
@@ -40,6 +58,7 @@
       box-sizing: border-box;
       padding-left: 20px;
       align-items: center;
+      cursor: pointer;
 
       .icon {
         width: 24px;

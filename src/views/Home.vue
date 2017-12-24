@@ -8,7 +8,7 @@
     </div>
     <div class="home-right">
       <nav-bar></nav-bar>
-      <div class="content">
+      <div class="home-content">
         <router-view></router-view>
       </div>
     </div>
@@ -61,10 +61,11 @@
 
     .home-right {
       flex: 1;
+      min-height: 100%;
+      background: #f4f8fb;
 
-      .content {
+      .home-content {
         padding: 20px;
-        background: #f4f8fb;
       }
     }
   }

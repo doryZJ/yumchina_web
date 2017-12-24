@@ -12,6 +12,9 @@ import AreaDeviceDetail from '@/views/AreaDeviceDetail'
 import AreaEnergyDetail from '@/views/AreaEnergyDetail'
 import AreaMaintenanceDetail from '@/views/AreaMaintenanceDetail'
 import UserManagement from '@/views/UserManagement'
+import StoreCreateStepOne from '@/views/StoreCreateStepOne'
+import StoreCreateStepTwo from '@/views/StoreCreateStepTwo'
+import StoreCreateStepThree from '@/views/StoreCreateStepThree'
 
 Vue.use(Router)
 
@@ -77,6 +80,21 @@ const router = new Router({
           path: '/userManagement',
           name: 'UserManagement',
           component: UserManagement
+        },
+        {
+          path: '/storeCreateStepOne',
+          name: 'StoreCreateStepOne',
+          component: StoreCreateStepOne
+        },
+        {
+          path: '/storeCreateStepTwo',
+          name: 'StoreCreateStepTwo',
+          component: StoreCreateStepTwo
+        },
+        {
+          path: '/storeCreateStepThree',
+          name: 'StoreCreateStepThree',
+          component: StoreCreateStepThree
         }
       ]
     }

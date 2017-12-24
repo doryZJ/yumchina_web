@@ -1,58 +1,19 @@
 <template>
   <div class="store-list">
-    <!-- <table class="table" cellpadding="0" cellspacing="0">
-      <tr class="list-head">
-        <th>
-          <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
-        </th>
-        <th>序号</th>
-        <th>登录名</th>
-        <th>用户名</th>
-        <th>用户角色</th>
-        <th>电子邮箱</th>
-        <th>状态</th>
-        <th>最近登录</th>
-        <th>最近登录IP</th>
-        <th>操作</th>
-      </tr>
-      <tr  v-for="(item, index) in list" :key="index">
-        <td class="num">{{item.num}}</td>
-        <td class="loginName">{{item.loginName}}</td>
-        <td class="userName">{{item.userName}}</td>
-        <td class="role">{{item.role}}</td>
-        <td class="email">{{item.email}}</td>
-        <td class="state">{{item.state}}</td>
-        <td class="recentLogin">{{item.recentLogin}}</td>
-        <td class="ip">{{item.ip}}</td>
-        <td>
-          <span>密码重置</span>
-          <i>|</i>
-          <span>查看</span>
-          <i>|</i>
-          <span>修改</span>
-          <i>|</i>
-          <span>删除</span>
-        </td>
-      </tr>
-    </table> -->
     <el-table ref="multipleTable" :data="list" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="55">
-      </el-table-column>
       <el-table-column prop="num" label="序号" min-width="50">
       </el-table-column>
-      <el-table-column prop="loginName" label="登录名" min-width="60">
+      <el-table-column prop="name" label="门店名称" min-width="100">
       </el-table-column>
-      <el-table-column prop="userName" label="用户名" min-width="60">
+      <el-table-column prop="frequency" label="点检频率" min-width="100">
       </el-table-column>
-      <el-table-column prop="role" label="用户角色" min-width="80">
+      <el-table-column prop="type" label="点检类型" min-width="100">
       </el-table-column>
-      <el-table-column prop="email" label="电子邮箱" min-width="120">
+      <el-table-column prop="initialDate" label="初次点检时间" min-width="120">
       </el-table-column>
-      <el-table-column prop="state" label="状态"  min-width="60">
+      <el-table-column prop="person" label="点检人员"  min-width="100">
       </el-table-column>
-      <el-table-column prop="recentLogin" label="最近登录"  min-width="160">
-      </el-table-column>
-      <el-table-column prop="ip" label="最近登录IP"  min-width="100">
+      <el-table-column prop="remark" label="备注"  min-width="120">
       </el-table-column>
       <el-table-column label="操作" class="operate" min-width="200">
         <template slot-scope="scope">
@@ -66,24 +27,6 @@
         </template>
       </el-table-column>
     </el-table>
-    <div class="list-operate clearfix">
-      <div class="btn-wrapper">
-        <div class="btn btn-add">
-          <img src="../../assets/images/icon_add_12x12 copy 2@2x.png" alt="">
-          <span>新 增</span>
-        </div>
-        <div class="btn btn-delete" @click="handleDelete">
-          <img src="../../assets/images/icon_del_9x12 copy 2@2x.png" alt="">
-          <span>删 除</span>
-        </div>
-      </div>
-      <div class="page-wrapper">
-        <el-pagination
-          layout="prev, pager, next"
-          :total="50">
-        </el-pagination>
-      </div>
-    </div>
     <password-reset v-show="passwordResetVisiable" @close="closePasswordReset"></password-reset>
     <user-view v-show="viewVisiable" @close="closeView"></user-view>
     <user-edit v-show="editVisiable" @close="closeEdit"></user-edit>
@@ -100,43 +43,39 @@ export default {
     return {
       list: [{
         num: 1,
-        loginName: 'asf',
-        userName: 'asf',
-        role: '人事经理',
-        email: 'asf@163.com',
-        state: '有效',
-        recentLogin: '2017/10/11 17:40:31',
-        ip: '192.168.1.1'
+        name: '制冰机',
+        frequency: '每周',
+        type: '火警系统',
+        initialDate: '2014年10月1日',
+        person: '范坚强',
+        remark: '无'
       },
       {
         num: 2,
-        loginName: 'asf',
-        userName: 'asf',
-        role: '人事经理',
-        email: 'asf@163.com',
-        state: '有效',
-        recentLogin: '2017/10/11 17:40:31',
-        ip: '192.168.1.1'
+        name: '制冰机',
+        frequency: '每周',
+        type: '火警系统',
+        initialDate: '2014年10月1日',
+        person: '范坚强',
+        remark: '无'
       },
       {
         num: 3,
-        loginName: 'asf',
-        userName: 'asf',
-        role: '人事经理',
-        email: 'asf@163.com',
-        state: '有效',
-        recentLogin: '2017/10/11 17:40:31',
-        ip: '192.168.1.1'
+        name: '制冰机',
+        frequency: '每周',
+        type: '火警系统',
+        initialDate: '2014年10月1日',
+        person: '范坚强',
+        remark: '无'
       },
       {
         num: 4,
-        loginName: 'asf',
-        userName: 'asf',
-        role: '人事经理',
-        email: 'asf@163.com',
-        state: '有效',
-        recentLogin: '2017/10/11 17:40:31',
-        ip: '192.168.1.1'
+        name: '制冰机',
+        frequency: '每周',
+        type: '火警系统',
+        initialDate: '2014年10月1日',
+        person: '范坚强',
+        remark: '无'
       }
       ],
       multipleSelection: [],
@@ -265,7 +204,6 @@ export default {
           height: 26px;
           box-sizing: border-box;
           font-size: 12px;
-          cursor: pointer;
 
           span {
             height: 26px;
