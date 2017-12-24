@@ -52,6 +52,7 @@
   export default {
     methods: {
       handleOpen (key, keyPath) {
+        console.log(keyPath)
         this.$router.push({'name': key})
       },
       handleClose (key, keyPath) {
@@ -68,7 +69,6 @@
       border-right: 0;
 
       li {
-        
         img {
           margin-right: 6px;
         }

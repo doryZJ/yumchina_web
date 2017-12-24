@@ -48,7 +48,10 @@
       </el-table-column>
       <el-table-column prop="email" label="电子邮箱" min-width="120">
       </el-table-column>
-      <el-table-column prop="state" label="状态"  min-width="60">
+      <el-table-column prop="state" label="状态"  min-width="60" class="state">
+        <template slot-scope="scope">
+          <span style="margin-left: 10px" :class="{'green': scope.row.state === '有效', 'red': scope.row.state === '无效'}">{{ scope.row.state }}</span>
+        </template>
       </el-table-column>
       <el-table-column prop="recentLogin" label="最近登录"  min-width="160">
       </el-table-column>
@@ -137,6 +140,16 @@ export default {
         state: '有效',
         recentLogin: '2017/10/11 17:40:31',
         ip: '192.168.1.1'
+      },
+      {
+        num: 5,
+        loginName: 'asf',
+        userName: 'asf',
+        role: '人事经理',
+        email: 'asf@163.com',
+        state: '无效',
+        recentLogin: '2017/10/11 17:40:31',
+        ip: '192.168.1.1'
       }
       ],
       multipleSelection: [],
@@ -216,6 +229,10 @@ export default {
 
           td {
             padding: 8px 0;
+
+            span {
+              margin-left: 0 !important;
+            }
           }
 
           i {
@@ -305,6 +322,14 @@ export default {
         text-align: right;
         height: 22px;
       }
+    }
+
+    .green {
+      color: #91bf9b;
+    }
+
+    .red {
+      color: #db4433;
     }
   }
 </style>
